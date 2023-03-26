@@ -2,10 +2,11 @@
 
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
+import {Button, Container, Nav, Navbar} from 'react-bootstrap';
 
 function Detail(props) {
   let {productNumber} = useParams();
-
+  let [tabnum, setTabnum] = useState(0);
   let [input, setInput] = useState('');
 
   let filter = props.shoes.find((a) => {
@@ -31,6 +32,22 @@ function Detail(props) {
         ) : null
       }
       </div>
+
+      <Nav variant="tabs"  defaultActiveKey="link0">
+        <Nav.Item>
+          <Nav.Link eventKey="link0">버튼0</Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link eventKey="link1">버튼1</Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link eventKey="link2">버튼2</Nav.Link>
+        </Nav.Item>
+      </Nav>
+      <div>내용0</div>
+      <div>내용1</div>
+      <div>내용2</div>
+
     </div>
   )
 }
